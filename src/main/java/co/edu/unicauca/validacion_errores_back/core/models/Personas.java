@@ -1,5 +1,6 @@
 package co.edu.unicauca.validacion_errores_back.core.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,9 +22,13 @@ public abstract class Personas{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
+    
     private String tipoIdentificacion;
+    @Column(nullable = false)
     private String numeroIdentificacion;
+    @Column(nullable = false)
     private String nombres;
+    @Column(nullable = false)
     private String apellidos;
 
 
