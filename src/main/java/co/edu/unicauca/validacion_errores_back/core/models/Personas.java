@@ -21,7 +21,6 @@ public abstract class Personas{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    
     private String tipoIdentificacion;
     private String numeroIdentificacion;
     private String nombres;
