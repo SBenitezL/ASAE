@@ -12,13 +12,13 @@ public class Publicacion {
     private int idPublicacion;
 
     @ManyToOne
-    @JoinColumn(name = "idTipo")
+    @JoinColumn(name = "idTipo", nullable = false)
     private Tipo objTipo;
 
-    @Column("titulo")
+    @Column(name = "titulo", nullable = false)
     private String titulo;
 
-    @Column("area")
+    @Column(name = "area", nullable = false)
     private String area;
 
     public Publicacion(){
