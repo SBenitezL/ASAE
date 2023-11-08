@@ -1,11 +1,31 @@
 package co.edu.unicauca.validacion_errores_back.core.models;
 
-@Entity
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import co.edu.unicauca.validacion_errores_back.core.models.Publicacion;
+
 @Entity
 @PrimaryKeyJoinColumn(name = "idPersona")
 @Getter
 @Setter
-@NoArgsContructor
+@NoArgsConstructor
 public class Docente extends Personas{
     @Column(name = "correo")
     private String correo;
@@ -24,8 +44,10 @@ public class Docente extends Personas{
     }
 
     @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Docentes_Publicaciones",
-        joinColumns = @JoinColumn(name = "idPersona"),
-        InverseJoinColumns = @JoinColumn(name = "idPublicacion"))
+    @JoinTable(
+    name = "Docentes_Publicaciones",
+    joinColumns = @JoinColumn(name = "idPersona"),
+    inverseJoinColumns = @JoinColumn(name = "idPublicacion")
+)
     private List<Publicacion> publicaciones;
 }
