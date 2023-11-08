@@ -2,8 +2,7 @@ package co.edu.unicauca.validacion_errores_back.core.models;
 
 import java.util.ArrayList;
 
-@Entity
-@Entity
+@Entity(name = "docentes")
 @PrimaryKeyJoinColumn(name = "idPersona")
 @Getter
 @Setter
