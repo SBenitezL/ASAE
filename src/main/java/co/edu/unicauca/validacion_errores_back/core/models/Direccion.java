@@ -31,7 +31,7 @@ public class Direccion {
 
     @OneToOne
 	@JoinColumn(name = "idPersona")
-	private Docentes objDocente;
+	private Docente objDocente;
 	public Integer getidPersona() {
 		return idPersona;
 	}

@@ -1,14 +1,25 @@
 package co.edu.unicauca.validacion_errores_back.core.models;
 
+
 import javax.annotation.processing.Generated;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Entity(name = "publicaciones")
 @Data
 @AllArgsConstructor
 public class Publicacion {
     @Id
-    @GeneratedVaue(strategy = GenerationType.IDENTITY)
-    @Column("idPublicacion")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPublicacion")
     private int idPublicacion;
 
     @ManyToOne
