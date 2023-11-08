@@ -2,6 +2,18 @@ package co.edu.unicauca.validacion_errores_back.core.models;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity(name = "docentes")
 @PrimaryKeyJoinColumn(name = "idPersona")
 @Getter
@@ -25,6 +37,9 @@ public class Docente extends Personas{
 
     @OneToOne(mappedBy = "objDocente",fetch=FetchType.EAGER)
     private Direccion objDireccion;
+
+    // @OneToOne(cascade = { CascadeType.REMOVE, CascadeType.PERSIST }, mappedBy = "objDocente")
+	// private Direccion objDireccion;
 
     public Docente(int Idpersona,String tipoIdentificacion,
                 String numeroIdentificacion,String nombres,
