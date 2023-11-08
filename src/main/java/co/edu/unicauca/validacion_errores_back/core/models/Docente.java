@@ -24,7 +24,7 @@ public class Docente extends Personas{
         InverseJoinColumns = @JoinColumn(name = "idPublicacion"))
     private List<Publicacion> publicaciones;
 
-    @OneToOne(mappedBy = "objDocente")
+    @OneToOne(mappedBy = "objDocente",fetch=FetchType.EAGER)
     private Direccion objDireccion;
 
     public Docente(int Idpersona,String tipoIdentificacion,
